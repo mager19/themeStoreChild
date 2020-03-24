@@ -1,0 +1,20 @@
+header.header__child {
+	position: relative;
+
+	h1 {
+		color: #fff;
+	}
+
+	.header__inside {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		min-height: 700px;
+		text-align: center;
+	}
+}
+
+.top-bar {
+	background-color: lightgrey;
+	position: relative;
+}
