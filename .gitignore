@@ -3,6 +3,7 @@
 # Example .gitignore files: https://github.com/github/gitignore
 bower_components/
 node_modules/
+/node_modules/
 themes/storefront-child-theme/.sass-cache/
 themes/storefront-child-theme/node_modules/
 # uploads/

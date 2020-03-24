@@ -1,20 +1,37 @@
-header.header__child {
-	position: relative;
+//Define gilmore Theme Colors
 
-	h1 {
-		color: #fff;
-	}
+$font-size-base: 16px;
 
-	.header__inside {
-		align-items: center;
-		display: flex;
-		justify-content: center;
-		min-height: 700px;
-		text-align: center;
-	}
-}
+$otro: #00a5b5;
 
-.top-bar {
-	background-color: lightgrey;
-	position: relative;
-}
+$primary: #00a5b5;
+$primary-hover: #afdbe0;
+// $secondary: #191b1f;
+// $secondary-hover: #191b1f;
+$txt: #000;
+
+$dark-1: #161616;
+$dark-2: #646464;
+$dark-3: #919191;
+
+$light-1: #f2f2f2;
+$light-2: #e0e0e0;
+$light-3: #bdbdbd;
+
+$background-login: $primary;
+
+//Define Theme Fonts
+$font-family-base: "Open Sans", sans-serif;
+$font-family-alt: "Josefin Sans", sans-serif;
+// $font-family-decoration: serif;
+
+/*
+    Define Theme Font Weights:*/
+
+$font-weight-light: 300;
+
+$font-weight-bold: 700;
+
+$font-weight-normal: 400;
+$font-weight-semi: 600;
+$font-weight-bold: 700;

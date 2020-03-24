@@ -1,0 +1,20 @@
+.textiles-area {
+	display: flex;
+	align-items: center;
+
+	position: relative;
+
+	&:before {
+		content: "";
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 30%;
+
+		@include triangulo;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+}
