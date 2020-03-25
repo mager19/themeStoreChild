@@ -206,3 +206,15 @@ body {
 		}
 	}
 }
+
+blockquote {
+	border: none;
+	margin: 0;
+	padding: 0;
+	color: $primary;
+	text-transform: none;
+	font-style: normal;
+	p {
+		font-weight: bold !important;
+	}
+}

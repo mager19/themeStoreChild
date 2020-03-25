@@ -46,5 +46,23 @@ get_header(); ?>
     </div>
 </section>
 
+<!-- Vision -->
+<section class="vision">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 vision__left order-lg-0 order-md-1">
+                <?php $image = get_field('vision_imagen'); ?>
+                <div class="content" style="background-image:url(<?php echo $image['url']; ?>);"></div>
+            </div>
+
+            <div class="col-lg-6 vision__right order-lg-1 order-md-0">
+                <div class="content">
+                    <?php the_field('vision_content'); ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <?php
 get_footer();

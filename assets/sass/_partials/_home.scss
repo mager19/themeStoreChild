@@ -39,6 +39,7 @@
 /*Mision*/
 .mision {
 	background-color: #f2f8f9;
+	padding-bottom: 4rem;
 
 	.mision__left {
 		display: flex;
@@ -49,7 +50,8 @@
 
 		@include media-breakpoint-down(md) {
 			text-align: center;
-			padding: 4rem 15px;
+			padding-top: 4rem;
+			padding-bottom: 2rem;
 		}
 
 		.content {
@@ -59,7 +61,7 @@
 				}
 
 				@include media-breakpoint-down(md) {
-					margin-bottom: 2rem;
+					margin-bottom: 2.5rem;
 				}
 			}
 
@@ -96,6 +98,74 @@
 				@include media-breakpoint-down(md) {
 					display: none;
 				}
+			}
+		}
+	}
+}
+
+/*vision*/
+.vision {
+	padding-bottom: 4rem;
+
+	.vision__left {
+		.content {
+			@include backgroundSettings;
+			min-height: 584px;
+			position: relative;
+
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				bottom: 0;
+				right: -3.5%;
+
+				@include triangulo-derecha();
+
+				@include media-breakpoint-down(md) {
+					display: none;
+				}
+			}
+		}
+	}
+
+	.vision__right {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		padding-top: 7rem;
+		min-height: 584px;
+		padding-left: 2rem;
+
+		@include media-breakpoint-down(md) {
+			text-align: center;
+			padding-top: 4rem;
+			padding-bottom: 2rem;
+			padding-left: 15px;
+			min-height: auto;
+
+			p {
+				text-align: left;
+			}
+
+			blockquote {
+				margin-bottom: 2rem;
+			}
+
+			.title--3 {
+				&:before {
+					left: 30%;
+				}
+
+				@include media-breakpoint-down(md) {
+					margin-bottom: 2.5rem;
+				}
+			}
+		}
+
+		p {
+			&:last-child {
+				margin-bottom: 0;
 			}
 		}
 	}
