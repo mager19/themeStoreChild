@@ -35,3 +35,31 @@ $font-weight-bold: 700;
 $font-weight-normal: 400;
 $font-weight-semi: 600;
 $font-weight-bold: 700;
+
+.title--3 {
+	color: #5c6670;
+	font-family: "Josefin Sans";
+	font-size: 1.75rem;
+	font-weight: 600;
+	line-height: 1.75rem;
+	position: relative;
+
+	@include media-breakpoint-down(xs) {
+		text-align: center;
+	}
+
+	&:before {
+		background-color: $primary;
+		content: "";
+		display: block;
+		position: absolute;
+		width: 3.5rem;
+		height: 3px;
+		left: 0;
+		bottom: -10px;
+
+		@include media-breakpoint-down(xs) {
+			left: 40%;
+		}
+	}
+}

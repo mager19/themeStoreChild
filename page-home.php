@@ -15,12 +15,12 @@ get_header(); ?>
 
 <div class="container padding-content textiles-area">
     <div class="row">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-md-5 d-none d-md-block">
             <?php $image = get_field('textiles_cm_image');
             echo wp_get_attachment_image($image['id'], $size = 'full');
             ?>
         </div>
-        <div class="col-lg-8 d-flex align-items-center">
+        <div class="col-lg-8 col-md-7 textiles-area__right d-flex align-items-center">
             <div class="content">
                 <?php the_field('textiles_cm_content') ?>
             </div>

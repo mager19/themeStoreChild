@@ -38,8 +38,6 @@
                     <div class="col-lg-12 header__inside">
                         <?php the_field('texto_encabezado', 'option');
                         ?>
-                        <!-- <h1>Buscando siempre la <strong>INNOVACIÓN</strong>
-                            <span>con el mejor equipo tecnológico</span></h1> -->
                     </div>
                 </div>
             </div>
