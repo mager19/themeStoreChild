@@ -35,3 +35,68 @@
 		}
 	}
 }
+
+/*Mision*/
+.mision {
+	background-color: #f2f8f9;
+
+	.mision__left {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		text-align: right;
+		padding-right: 2rem;
+
+		@include media-breakpoint-down(md) {
+			text-align: center;
+			padding: 4rem 15px;
+		}
+
+		.content {
+			.title--3 {
+				&:before {
+					left: 45%;
+				}
+
+				@include media-breakpoint-down(md) {
+					margin-bottom: 2rem;
+				}
+			}
+
+			p {
+				margin-bottom: 0;
+				padding-left: 3rem;
+
+				@include media-breakpoint-down(md) {
+					padding-left: 0;
+				}
+			}
+		}
+	}
+
+	.mision__right {
+		@include media-breakpoint-down(md) {
+			padding-bottom: 4rem;
+		}
+
+		.content {
+			@include backgroundSettings;
+			min-height: 510px;
+			position: relative;
+
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: -3%;
+
+				@include triangulo-izquierda();
+
+				@include media-breakpoint-down(md) {
+					display: none;
+				}
+			}
+		}
+	}
+}

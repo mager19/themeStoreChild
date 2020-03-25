@@ -43,6 +43,8 @@ $font-weight-bold: 700;
 	font-weight: 600;
 	line-height: 1.75rem;
 	position: relative;
+	margin-bottom: 4rem;
+	display: inline-block;
 
 	@include media-breakpoint-down(xs) {
 		text-align: center;

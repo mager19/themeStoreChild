@@ -12,7 +12,7 @@
 
 get_header(); ?>
 
-
+<!-- Section Textiles -->
 <div class="container padding-content textiles-area">
     <div class="row">
         <div class="col-lg-4 col-md-5 d-none d-md-block">
@@ -27,6 +27,24 @@ get_header(); ?>
         </div>
     </div>
 </div>
+
+<!-- Mision -->
+<section class="mision">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-5 mision__left">
+                <div class="content">
+                    <?php the_field('mision_content'); ?>
+                </div>
+            </div>
+
+            <div class="col-lg-7 mision__right">
+                <?php $image = get_field('mision_imagen');  ?>
+                <div class="content" style="background-image:url(<?php echo $image['url']; ?>);"></div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php
 get_footer();
