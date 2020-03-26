@@ -13,7 +13,7 @@
 get_header(); ?>
 
 <!-- Section Textiles -->
-<div class="container padding-content textiles-area">
+<div class="container padding-content textiles-area" id="quienes__somos">
     <div class="row">
         <div class="col-lg-4 col-md-5 d-none d-md-block">
             <?php $image = get_field('textiles_cm_image');
@@ -63,6 +63,37 @@ get_header(); ?>
         </div>
     </div>
 </section>
+
+<!-- tiposdetela -->
+<section class="tipodetela">
+    <div class="container">
+        <div class="row">
+            <div class="tipodetela__title">
+                <?php the_field('tipos_de_tela_content'); ?>
+            </div>
+        </div>
+
+        <div class="row container__items__tela">
+            <?php if (have_rows('tipos_de_tela')) : ?>
+
+                <?php while (have_rows('tipos_de_tela')) : the_row(); ?>
+                    <div class="item__tipodetela">
+                        <div class="content">
+                            <?php $image = get_sub_field('patron');
+                            echo wp_get_attachment_image($image['id']);
+                            ?>
+                            <h3><?php the_sub_field('patron_title'); ?></h3>
+                            <?php the_sub_field('descripcion'); ?>
+                        </div>
+                    </div>
+                <?php endwhile; ?>
+
+            <?php endif; ?>
+
+        </div>
+    </div>
+</section>
+
 
 <?php
 get_footer();
