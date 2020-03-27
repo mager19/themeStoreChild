@@ -10,42 +10,29 @@
 
 </div><!-- #content -->
 
-<footer class="site-footer">
-    <div class="container">
+<footer class="site-footer footer__child">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-lg-4">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima mollitia asperiores non repellendus rerum dolores libero illo sapiente laudantium ab, temporibus ullam excepturi ad hic corporis culpa. Odio, hic distinctio.
-            </div>
-        </div>
-        <section>
-            <div class="footer">
+            <div class="col-lg-auto col-md-3 footer__child__left d-flex justify-content-center">
                 <div class="sitelogo">
-                    <?php $GETlogo = get_field('logo_site', 'option'); ?>
+                    <?php $GETlogo = get_field('logo_footer', 'option'); ?>
                     <a href="<?php echo esc_url(get_bloginfo('url')); ?>"><img src="<?php echo $GETlogo['url']; ?>" height="<?php echo $GETlogo['height'] / 2; ?>" width="<?php echo $GETlogo['width'] / 2; ?>" /></a>
                 </div>
-
-                <!--Social Icons-->
-                <div class="social-icons">
-                    <?php
-                    if (have_rows('social_icons', 'option')) :
-                        while (have_rows('social_icons', 'option')) : the_row();
-                            $social = get_sub_field('social_icon');
-                    ?>
-                            <a href="<?php the_sub_field('social_profile'); ?>" target="_blank" data-linktype="social" data-socialnetwork="<?php echo $social['value']; ?>">
-                                <i class="icon-<?php echo $social['value']; ?>"></i>
-                            </a>
-                    <?php endwhile;
-                    endif;
-                    ?>
-                </div>
-                <!--/Social Icons-->
-
-                <div class="footer__information">
-                    <h4>Phone <span><a href="tel:<?php the_field('phone', 'option'); ?>"><?php the_field('phone', 'option'); ?></a> </span>Box Office: <span><a href="tel:<?php the_field('box_office', 'option'); ?>"><?php the_field('box_office', 'option'); ?></a></span></h4>
-                    <h4><?php the_field('footer_info', 'option'); ?></h4>
-                </div>
             </div>
-        </section>
+
+            <div class="col-lg-9 col-xl-10 col-md-9 footer__child__right d-flex justify-content-between ">
+
+                <div class="footer__child__right__item">
+                    <?php the_field('copyright', 'option'); ?>
+                </div>
+
+                <div class="footer__child__right__item">
+                    <?php the_field('footer_info', 'option'); ?>
+                </div>
+
+            </div>
+        </div>
+
     </div>
 </footer><!-- #colophon -->
 

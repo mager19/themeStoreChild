@@ -34,7 +34,9 @@ function textilescm()
 
     wp_enqueue_script('theme-scripts-bootstrap', get_stylesheet_directory_uri() . '/assets/js/bootstrap.min.js', array('jquery'), '0.1', true);
 
-    wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=AIzaSyApqoIBG8ip_FTD1a7KDZdWHfxGMSxZHRU', array('jquery'), null, true);
+    $apikey = get_field("google_maps_api_key", 'option');
+
+    wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $apikey, array('jquery'), null, true);
 
     wp_enqueue_script('theme-scripts', get_stylesheet_directory_uri() . '/assets/js/textiles.js', array('jquery'), '0.1', true);
 }
@@ -55,3 +57,11 @@ function my_acf_google_map_api($api)
 }
 
 add_filter('acf/fields/google_map/api', 'my_acf_google_map_api');
+
+
+//Actual Year
+function textiles_displaydate()
+{
+    return date('Y');
+}
+add_shortcode('date', 'textiles_displaydate');

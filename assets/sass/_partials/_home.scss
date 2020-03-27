@@ -307,7 +307,7 @@
 				padding-left: 4rem;
 
 				@include media-breakpoint-down(xs) {
-					padding-left: 15px;
+					padding-left: 0 !important;
 					margin-top: 2rem;
 				}
 			}
@@ -391,6 +391,7 @@ Formulario CF7 a 2 columnas responsive
 
 .map__container {
 	position: relative;
+	height: 100%;
 }
 
 .acf-map {

@@ -115,8 +115,8 @@ get_header(); ?>
 <section class="contacto" id="contacto">
     <div class="container-fluid container__especial">
         <div class="row no-gutters">
-            <div class="col-lg-6 map__container">
-                <div class="map-top">
+            <div class="col-lg-6">
+                <div class="map-top map__container">
                     <?php
                     $location = get_field('mapa');
 
@@ -134,7 +134,7 @@ get_header(); ?>
             <div class="col-lg-6 contacto__right">
                 <h3 class="title--3"><?php the_field('ubicacion_title'); ?> </h3>
 
-                <div class="row direccion">
+                <div class="row direccion no-gutters">
                     <div class="col-lg-6 col-md-6 col-12 direccion__left">
                         <div class="row">
                             <div class="col-xl-2 col-lg-3 col-md-3 col-3">
@@ -149,7 +149,7 @@ get_header(); ?>
 
                     <div class="col-lg-6 col-md-6 col-12 direccion__right">
                         <div class="row">
-                            <div class="col-xl-2 col-lg-3 col-md-3 col-2">
+                            <div class="col-xl-2 col-lg-3 col-md-3 col-3">
                                 <img class="icon__telefono" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/telefono.png" alt="">
                             </div>
                             <div class="col-xl-10 col-lg-9 col-md-9 col-9">
