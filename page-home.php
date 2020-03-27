@@ -94,6 +94,73 @@ get_header(); ?>
     </div>
 </section>
 
+<!-- Nuestros Productos -->
+<section class="nuestros__productos my-5" id="nuestros__productos">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <h3 class="title--3">
+                    NUESTROS <span>PRODUCTOS</span>
+                </h3>
+            </div>
+
+            <div class="col-lg-9" style="background:lightgray;">
+                <h1>Aca iran los productos</h1>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contacto -->
+<section class="contacto" id="contacto">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-6">
+                mapa
+            </div>
+            <div class="col-lg-6 contacto__right">
+                <h3 class="title--3"><?php the_field('ubicacion_title'); ?> </h3>
+
+                <div class="row direccion">
+                    <div class="col-lg-6 col-md-6 col-12 direccion__left">
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-3 col-md-3 col-3">
+                                <img class="icon__contacto" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/location.png" alt="">
+                            </div>
+                            <div class="col-xl-10 col-lg-9 col-md-9 col-9">
+                                <?php the_field('direccion', 'option'); ?>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="col-lg-6 col-md-6 col-12 direccion__right">
+                        <div class="row">
+                            <div class="col-xl-2 col-lg-3 col-md-3 col-2">
+                                <img class="icon__telefono" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/telefono.png" alt="">
+                            </div>
+                            <div class="col-xl-10 col-lg-9 col-md-9 col-9">
+                                <?php the_field('telefono', 'option'); ?>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row form">
+                    <div class="col-lg-12">
+                        <h3 class="title--3">Contacto</h3>
+                    </div>
+
+                    <div class="col-lg-12">
+                        <?php the_field('formulario_de_contacto'); ?>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
 
 <?php
 get_footer();

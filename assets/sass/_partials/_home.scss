@@ -209,16 +209,180 @@
 
 	.item__tipodetela {
 		@extend .col-lg-3;
+		@extend .col-md-6;
+		@extend .col-10;
+
+		@include media-breakpoint-down(xs) {
+			margin: 0 auto;
+		}
+
+		-webkit-filter: grayscale(1);
+		filter: grayscale(1);
+
+		transition: 0.6s ease all;
 
 		.content {
 			display: flex;
 			align-items: center;
 			flex-direction: column;
 			text-align: center;
+			min-height: 340px;
+			padding-top: 3rem;
+
+			img {
+				height: 60px;
+				width: 60px;
+			}
+
+			h3 {
+				color: $primary;
+				margin: 2rem 0;
+			}
+
+			p {
+				font-size: 1rem;
+			}
 		}
 
 		&:hover {
 			background-color: #f3fbfc;
+			cursor: pointer;
+
+			-webkit-filter: grayscale(0);
+			filter: grayscale(0);
 		}
+	}
+}
+
+/*Nuestros productos*/
+.nuestros__productos {
+	.title--3 {
+		span {
+			color: #5c6670;
+			font-weight: 100 !important;
+			display: inline-block;
+		}
+	}
+}
+
+/*contacto*/
+.contacto {
+	&__right {
+		background-color: rgba(164, 169, 173, 0.2);
+
+		@include media-breakpoint-down(lg) {
+			padding: 4rem 2rem 1rem 2rem;
+		}
+
+		@include media-breakpoint-down(xl) {
+			padding: 4rem 4rem 1rem 4rem;
+		}
+
+		@include media-breakpoint-down(md) {
+			padding: 2rem 15px;
+		}
+
+		.direccion {
+			border-bottom: 2px solid #c5c6c7;
+			padding-bottom: 2rem;
+
+			@include media-breakpoint-down(md) {
+				margin-bottom: 2rem;
+			}
+
+			p {
+				margin-bottom: 0;
+			}
+
+			&__left {
+				border-right: 2px solid #c5c6c7;
+
+				display: flex;
+				align-items: center;
+			}
+
+			&__right {
+				padding-left: 4rem;
+
+				@include media-breakpoint-down(xs) {
+					padding-left: 15px;
+					margin-top: 2rem;
+				}
+			}
+
+			.icon__contacto {
+				width: 18px;
+				height: 25px;
+			}
+
+			.icon__telefono {
+				width: 17px;
+				height: 22px;
+			}
+		}
+
+		.form {
+			padding-top: 2rem;
+		}
+	}
+	.title--3 {
+		text-transform: uppercase;
+		margin-bottom: 2rem;
+		&:before {
+			display: none;
+		}
+	}
+}
+
+/*
+Formulario CF7 a 2 columnas responsive
+*/
+#responsive-form {
+	// max-width: 600px /*-- change this to get your desired form width --*/;
+	margin: 0 auto;
+	width: 100%;
+
+	input,
+	textarea {
+		background-color: transparent;
+		border: 1px solid #a4a9ad;
+		min-height: 55px;
+		padding: 1.5rem 2rem;
+	}
+
+	input[type="submit"] {
+		background-color: $primary;
+		color: #fff;
+		padding: 1.2rem 2rem;
+		width: 150px;
+
+		@include media-breakpoint-down(xs) {
+			margin-top: 2rem;
+		}
+	}
+}
+.form-row {
+	width: 100%;
+}
+.column-half,
+.column-full {
+	float: left;
+	position: relative;
+	padding: 0.65rem;
+	width: 100%;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.clearfix:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+/**---------------- Media query ----------------**/
+@media only screen and (min-width: 48em) {
+	.column-half {
+		width: 50%;
 	}
 }
