@@ -269,6 +269,8 @@
 .contacto {
 	&__right {
 		background-color: rgba(164, 169, 173, 0.2);
+		padding-left: 2rem !important;
+		padding-right: 15px !important;
 
 		@include media-breakpoint-down(lg) {
 			padding: 4rem 2rem 1rem 2rem;
@@ -385,4 +387,23 @@ Formulario CF7 a 2 columnas responsive
 	.column-half {
 		width: 50%;
 	}
+}
+
+.map__container {
+	position: relative;
+}
+
+.acf-map {
+	width: 100%;
+	height: 100%;
+	border: #ccc solid 1px;
+	position: absolute;
+}
+
+.acf-map img {
+	max-width: inherit !important;
+}
+
+.container__especial {
+	padding: 0 !important;
 }

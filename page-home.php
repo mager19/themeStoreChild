@@ -113,10 +113,23 @@ get_header(); ?>
 
 <!-- Contacto -->
 <section class="contacto" id="contacto">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6">
-                mapa
+    <div class="container-fluid container__especial">
+        <div class="row no-gutters">
+            <div class="col-lg-6 map__container">
+                <div class="map-top">
+                    <?php
+                    $location = get_field('mapa');
+
+                    if (!empty($location)) : ?>
+                        <div class="content">
+                            <div class="acf-map">
+                                <div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
+
+                                </div>
+                            </div>
+                        </div>
+                    <?php endif; ?>
+                </div>
             </div>
             <div class="col-lg-6 contacto__right">
                 <h3 class="title--3"><?php the_field('ubicacion_title'); ?> </h3>
