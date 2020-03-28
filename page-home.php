@@ -136,7 +136,7 @@ get_header(); ?>
                                 global $product;
                                 global $post;
 
-                                //$attributes = $product->get_attributes();
+                                the_title();
 
                                 $attributes = $product->get_attributes();
 
