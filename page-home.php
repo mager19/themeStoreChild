@@ -95,7 +95,7 @@ get_header(); ?>
 </section>
 
 <!-- Nuestros Productos -->
-<section class="nuestros__productos my-5" id="nuestros__productos">
+<section class="nuestros__productos my-lg-5 title__nuestros__productos" id="nuestros__productos">
     <div class="container">
         <div class="row">
             <div class="col-lg-3">
@@ -103,31 +103,50 @@ get_header(); ?>
                     NUESTROS <span>PRODUCTOS</span>
                 </h3>
 
-                <div class="row">
-                    <div class="button-group filters-button-group">
-                        <button class="button is-checked" data-filter="*">show all</button>
+                <div class="button-group filters-button-group d-lg-block d-none">
+                    <ul>
+                        <li class="filtro__item is-checked" data-filter="*">
+                            <div class="content">
+                                Mostrar Todos
+                            </div>
+                        </li>
                         <?php
 
                         $categories = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => false]);
 
                         foreach ($categories as $category) { ?>
-                            <div class="col-12">
-                                <button class="button" data-filter=".<?php echo $category->slug; ?>"><?php echo $category->name; ?></button>
-                            </div>
+                            <li class="filtro__item" data-filter=".<?php echo $category->slug; ?>">
+                                <div class="content">
+                                    <?php echo $category->name; ?>
+                                </div>
+                            </li>
                         <?php
                         }
                         ?>
-                    </div>
-
-
+                    </ul>
                 </div>
+
+                <div id="filters-mobile" class="d-block d-lg-none">
+                    <select class="filters-select">
+                        <option value="*">Mostrar Todos</option>
+
+                        <?php
+                        $categories = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => false]);
+                        echo '<pre>' . var_export($categories, true) . '</pre>';
+
+                        foreach ($categories as $category) {
+                            if ($category->count > 0) {
+                                echo '<option value=".' . $category->slug . '">' . $category->name . '</option> ';
+                            }
+                        }
+
+                        ?>
+                    </select>
+                </div>
+
             </div>
 
-            <div class="col-lg-9" style="background:lightgray;">
-                <h1>Aca iran los productos</h1>
-
-
-
+            <div class="col-lg-9 container__products">
                 <?php
                 $args = array('post_type' => 'product', 'posts_per_page' => -1);
                 $loop = new WP_Query($args);
@@ -137,22 +156,12 @@ get_header(); ?>
                         while ($loop->have_posts()) : $loop->the_post();
                             $terms = get_the_terms($post->ID, 'product_cat'); ?>
 
-                            <div class="col-lg-4 mt-4 element-item <?php echo $terms[0]->slug; ?>">
+                            <div class="col-lg-4 col-md-6 col-12 mb-5 element-item <?php echo $terms[0]->slug; ?>">
 
                                 <?php the_post_thumbnail(); ?>
                                 <?php
                                 global $product;
                                 global $post;
-
-                                the_title();
-
-                                foreach ($terms as $term) {
-                                    echo $term->name;
-                                    echo "/";
-                                }
-
-
-
 
                                 $attributes = $product->get_attributes();
 
@@ -169,7 +178,7 @@ get_header(); ?>
                                     $attribute_label = $taxonomy_object->labels->name_admin_bar;
 
                                     // Display the label followed by a clickable list of terms.
-                                    echo get_the_term_list($post->ID, $attribute['name'], '<div class="attributes">' . $attribute_label . ': ', ', ', '</div>');
+                                    echo get_the_term_list($post->ID, $attribute['name'], '<div class="attributes"><strong>' . $attribute_label . '</strong>: ', ', ', '</div>');
                                 }
 
                                 ?>

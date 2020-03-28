@@ -408,3 +408,130 @@ Formulario CF7 a 2 columnas responsive
 .container__especial {
 	padding: 0 !important;
 }
+
+/*FILTRO*/
+.filtro__item {
+	cursor: pointer;
+	font-size: 18px;
+	font-weight: 500;
+	text-transform: uppercase;
+	padding-left: 0;
+	position: relative;
+	transition: 0.3s ease all;
+
+	.content {
+		border-bottom: 1px solid #e2e5e6;
+		padding: 1rem 0;
+		transition: 0.3s ease all;
+
+		&:before {
+			border-left: 6px solid transparent;
+			border-right: 6px solid transparent;
+			border-top: 8px solid #000;
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			margin-top: auto;
+			top: 0;
+
+			margin-bottom: auto;
+			bottom: 0;
+
+			transition: 0.3s ease all;
+		}
+	}
+
+	&:hover {
+		color: $primary;
+		.content {
+			border-color: $primary;
+		}
+	}
+}
+
+.is-checked {
+	color: $primary;
+	position: relative;
+	.content {
+		border-color: $primary;
+
+		&:before {
+			display: none;
+		}
+
+		&:after {
+			border-top: 6px solid transparent;
+			border-left: 8px solid $primary;
+			border-bottom: 6px solid transparent;
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+			position: absolute;
+			bottom: 0;
+			right: 0;
+
+			margin-top: auto;
+			top: 0;
+
+			margin-bottom: auto;
+			bottom: 0;
+		}
+	}
+}
+
+.filters-select {
+	background: #fff;
+	border: 1px solid #e2e5e6;
+	border-radius: 5px;
+	height: 40px;
+	width: 100%;
+	text-align: center;
+	padding-left: 1rem;
+	margin-bottom: 3rem;
+
+	@include media-breakpoint-down(xs) {
+		margin-bottom: 2rem;
+	}
+
+	/* Removes the default <select> styling */
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+
+	/* Positions background arrow image */
+	background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAh0lEQVQ4T93TMQrCUAzG8V9x8QziiYSuXdzFC7h4AcELOPQAdXYovZCHEATlgQV5GFTe1ozJlz/kS1IpjKqw3wQBVyy++JI0y1GTe7DCBbMAckeNIQKk/BanALBB+16LtnDELoMcsM/BESDlz2heDR3WePwKSLo5eoxz3z6NNcFD+vu3ij14Aqz/DxGbKB7CAAAAAElFTkSuQmCC");
+	background-repeat: no-repeat;
+	background-position: 98% center;
+	padding-right: 10px !important;
+}
+
+.grid {
+	min-height: 600px;
+}
+
+.attributes {
+	padding: 0 1rem;
+	a[rel="tag"] {
+		pointer-events: none;
+		cursor: default;
+		color: #000;
+	}
+}
+
+.element-item {
+	img {
+		margin-bottom: 1rem;
+	}
+}
+
+.title__nuestros__productos {
+	@include media-breakpoint-down(xs) {
+		text-align: center;
+	}
+}

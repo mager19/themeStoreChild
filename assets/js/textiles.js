@@ -677,7 +677,7 @@
             }
         };
         // bind filter button click
-        $('.filters-button-group').on('click', 'button', function () {
+        $('.filters-button-group').on('click', 'li', function () {
             var filterValue = $(this).attr('data-filter');
             // use filterFn if matches value
             filterValue = filterFns[filterValue] || filterValue;
@@ -692,10 +692,19 @@
             });
         });
 
+        // bind filter on select change
+        $('.filters-select').on('change', function () {
+            // get filter value from option value
+            var filterValue = this.value;
+            // use filterFn if matches value
+            filterValue = filterFns[filterValue] || filterValue;
+            $grid.isotope({ filter: filterValue });
+        });
+
         // change is-checked class on buttons
-        $('.button-group').each(function (i, buttonGroup) {
+        $('.button-group ul').each(function (i, buttonGroup) {
             var $buttonGroup = $(buttonGroup);
-            $buttonGroup.on('click', 'h3', function () {
+            $buttonGroup.on('click', 'li', function () {
                 $buttonGroup.find('.is-checked').removeClass('is-checked');
                 $(this).addClass('is-checked');
             });
