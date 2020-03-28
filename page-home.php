@@ -114,13 +114,15 @@ get_header(); ?>
 
                         $categories = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => false]);
 
-                        foreach ($categories as $category) { ?>
-                            <li class="filtro__item" data-filter=".<?php echo $category->slug; ?>">
-                                <div class="content">
-                                    <?php echo $category->name; ?>
-                                </div>
-                            </li>
+                        foreach ($categories as $category) {
+                            if ($category->count > 0) { ?>
+                                <li class="filtro__item" data-filter=".<?php echo $category->slug; ?>">
+                                    <div class="content">
+                                        <?php echo $category->name; ?>
+                                    </div>
+                                </li>
                         <?php
+                            }
                         }
                         ?>
                     </ul>
