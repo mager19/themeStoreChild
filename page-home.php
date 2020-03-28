@@ -239,14 +239,15 @@ get_header(); ?>
                                 <img class="icon__telefono" src="<?php echo get_stylesheet_directory_uri(); ?>/assets/img/telefono.png" alt="">
                             </div>
                             <div class="col-xl-10 col-lg-9 col-md-9 col-9">
-                                <?php the_field('telefono', 'option'); ?>
+                                <?php $telefono = get_field('telefono', 'option'); ?>
+                                <a href="tel:<?php echo $telefono; ?>"><?php echo $telefono; ?></a>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <div class="row form">
+                <div class=" row form">
                     <div class="col-lg-12">
                         <h3 class="title--3">Contacto</h3>
                     </div>
