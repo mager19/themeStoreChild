@@ -104,17 +104,20 @@ get_header(); ?>
                 </h3>
 
                 <div class="row">
-                    <?php
+                    <div class="button-group filters-button-group">
+                        <button class="button is-checked" data-filter="*">show all</button>
+                        <?php
 
-                    $categories = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => false]);
+                        $categories = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => false]);
 
-                    foreach ($categories as $category) { ?>
-                        <div class="col-12">
-                            <h3><?php echo $category->name; ?></h3>
-                        </div>
-                    <?php
-                    }
-                    ?>
+                        foreach ($categories as $category) { ?>
+                            <div class="col-12">
+                                <button class="button" data-filter=".<?php echo $category->slug; ?>"><?php echo $category->name; ?></button>
+                            </div>
+                        <?php
+                        }
+                        ?>
+                    </div>
 
 
                 </div>
@@ -123,20 +126,33 @@ get_header(); ?>
             <div class="col-lg-9" style="background:lightgray;">
                 <h1>Aca iran los productos</h1>
 
+
+
                 <?php
                 $args = array('post_type' => 'product', 'posts_per_page' => -1);
                 $loop = new WP_Query($args);
                 if ($loop->have_posts()) : ?>
-                    <div class="row">
+                    <div class="row grid">
                         <?php
-                        while ($loop->have_posts()) : $loop->the_post(); ?>
-                            <div class="col-lg-4 mt-4">
+                        while ($loop->have_posts()) : $loop->the_post();
+                            $terms = get_the_terms($post->ID, 'product_cat'); ?>
+
+                            <div class="col-lg-4 mt-4 element-item <?php echo $terms[0]->slug; ?>">
+
                                 <?php the_post_thumbnail(); ?>
                                 <?php
                                 global $product;
                                 global $post;
 
                                 the_title();
+
+                                foreach ($terms as $term) {
+                                    echo $term->name;
+                                    echo "/";
+                                }
+
+
+
 
                                 $attributes = $product->get_attributes();
 

@@ -38,6 +38,8 @@ function textilescm()
 
     wp_enqueue_script('google-maps', 'https://maps.googleapis.com/maps/api/js?key=' . $apikey, array('jquery'), null, true);
 
+    wp_enqueue_script('isotope', get_stylesheet_directory_uri() . '/assets/js/isotope.min.js', array('jquery'), '0.1', true);
+
     wp_enqueue_script('theme-scripts', get_stylesheet_directory_uri() . '/assets/js/textiles.js', array('jquery'), '0.1', true);
 }
 add_action('wp_enqueue_scripts', 'textilescm');
