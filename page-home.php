@@ -102,10 +102,69 @@ get_header(); ?>
                 <h3 class="title--3">
                     NUESTROS <span>PRODUCTOS</span>
                 </h3>
+
+                <div class="row">
+                    <?php
+
+                    $categories = get_terms(['taxonomy' => 'product_cat', 'hide_empty' => false]);
+
+                    foreach ($categories as $category) { ?>
+                        <div class="col-12">
+                            <h3><?php echo $category->name; ?></h3>
+                        </div>
+                    <?php
+                    }
+                    ?>
+
+
+                </div>
             </div>
 
             <div class="col-lg-9" style="background:lightgray;">
                 <h1>Aca iran los productos</h1>
+
+                <?php
+                $args = array('post_type' => 'product', 'posts_per_page' => -1);
+                $loop = new WP_Query($args);
+                if ($loop->have_posts()) : ?>
+                    <div class="row">
+                        <?php
+                        while ($loop->have_posts()) : $loop->the_post(); ?>
+                            <div class="col-lg-4 mt-4">
+                                <?php the_post_thumbnail(); ?>
+                                <?php
+                                global $product;
+                                global $post;
+
+                                //$attributes = $product->get_attributes();
+
+                                $attributes = $product->get_attributes();
+
+                                foreach ($attributes as $attribute) {
+
+                                    // Get the taxonomy.
+                                    $terms = wp_get_post_terms($product->id, $attribute['name'], 'all');
+                                    $taxonomy = $terms[0]->taxonomy;
+
+                                    // Get the taxonomy object.
+                                    $taxonomy_object = get_taxonomy($taxonomy);
+
+                                    // Get the attribute label.
+                                    $attribute_label = $taxonomy_object->labels->name_admin_bar;
+
+                                    // Display the label followed by a clickable list of terms.
+                                    echo get_the_term_list($post->ID, $attribute['name'], '<div class="attributes">' . $attribute_label . ': ', ', ', '</div>');
+                                }
+
+                                ?>
+                            </div>
+                        <?php endwhile; ?>
+                        <!-- post navigation -->
+                    <?php else : ?>
+                        <!-- no posts found -->
+                    </div>
+                <?php endif; ?>
+                <?php wp_reset_query(); ?>
             </div>
         </div>
     </div>
