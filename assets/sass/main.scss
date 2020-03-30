@@ -197,14 +197,32 @@ body {
 }
 
 .fps-sticky-menu__nav {
-	margin: 0 auto;
+	margin-right: 0;
+	margin-left: 2rem;
+
+	@include media-breakpoint-down(md) {
+		margin: 0 auto;
+	}
+
 	li {
 		margin-bottom: 0;
 
 		a {
-			color: #fff !important;
+			color: #00a5b5 !important;
 			font-weight: 600;
 		}
+	}
+}
+
+.fps-sticky-menu__container {
+	border-bottom: 2px solid #00a5b5 !important;
+}
+
+.fps-sticky-menu__container-inner {
+	justify-content: center !important;
+
+	@include media-breakpoint-down(md) {
+		justify-content: space-between !important;
 	}
 }
 
