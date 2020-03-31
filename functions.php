@@ -67,3 +67,30 @@ function textiles_displaydate()
     return date('Y');
 }
 add_shortcode('date', 'textiles_displaydate');
+
+
+function fix_my_login_logo()
+{ ?>
+    <style type="text/css">
+        #login h1 a {
+            margin-bottom: 30px;
+            height: 70px !important;
+        }
+
+        .login form input[type=checkbox] {
+            margin: 0 10px 0 0;
+        }
+
+        .login p.forgetmenot {
+            display: flex;
+            align-items: center;
+        }
+
+        .login.login label[for="rememberme"] {
+            padding-top: 0;
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+    </style>
+<?php }
+add_action('login_enqueue_scripts', 'fix_my_login_logo');
