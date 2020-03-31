@@ -237,3 +237,18 @@ blockquote {
 		font-weight: bold !important;
 	}
 }
+
+.fps-sticky-menu__logo {
+	@include media-breakpoint-down(md) {
+		display: block !important;
+		width: 50%;
+	}
+}
+
+.fps-sticky-menu__toggler {
+	@include media-breakpoint-down(md) {
+		width: 50%;
+		display: flex;
+		justify-content: flex-end;
+	}
+}

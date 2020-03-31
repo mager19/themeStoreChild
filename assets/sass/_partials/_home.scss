@@ -308,6 +308,10 @@
 			&__right {
 				padding-left: 4rem;
 
+				a {
+					color: $primary;
+				}
+
 				@include media-breakpoint-down(xs) {
 					padding-left: 0 !important;
 					margin-top: 2rem;
@@ -401,6 +405,11 @@ Formulario CF7 a 2 columnas responsive
 	height: 100%;
 	border: #ccc solid 1px;
 	position: absolute;
+
+	@include media-breakpoint-down(md) {
+		position: relative;
+		height: 400px;
+	}
 }
 
 .acf-map img {
