@@ -74,7 +74,7 @@ function fix_my_login_logo()
     <style type="text/css">
         #login h1 a {
             margin-bottom: 30px;
-            height: 70px !important;
+            height: 120px !important;
         }
 
         .login form input[type=checkbox] {
