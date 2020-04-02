@@ -52,6 +52,22 @@ header.header__child {
 			min-height: 400px;
 		}
 	}
+
+	.header__inside__shop {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		min-height: 250px;
+		text-align: center;
+
+		@include media-breakpoint-down(md) {
+			min-height: 500px;
+		}
+
+		@include media-breakpoint-down(xs) {
+			min-height: 400px;
+		}
+	}
 }
 
 .top-bar {

@@ -94,3 +94,58 @@ function fix_my_login_logo()
     </style>
 <?php }
 add_action('login_enqueue_scripts', 'fix_my_login_logo');
+
+add_action('init', 'remover_cosas');
+function remover_cosas()
+{
+    remove_action('storefront_header', 'storefront_skip_links', 5);
+    add_action('storefront_header', 'storefront_header_cart', 35);
+    remove_action('storefront_header', 'storefront_product_search', 40);
+    remove_action('storefront_header', 'storefront_header_cart', 60);
+    remove_action('storefront_header', 'storefront_primary_navigation', 50);
+
+    remove_action('woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 10);
+    remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
+    remove_action('woocommerce_before_shop_loop', 'storefront_woocommerce_pagination', 30);
+
+    remove_action('woocommerce_after_shop_loop', 'woocommerce_catalog_ordering', 10);
+
+    add_action("woocommerce_after_shop_loop_item_title", "add_attributes_products", 2);
+}
+
+// remove sidebar for woocommerce pages 
+// add_action('get_header', 'remove_storefront_sidebar');
+// function remove_storefront_sidebar()
+// {
+//     if (is_shop()) {
+//         remove_action('storefront_sidebar', 'storefront_get_sidebar', 10);
+//     }
+// }
+
+//add attributes producto shop page
+//add_action('init', 'add_attributes_products');
+function add_attributes_products()
+{
+
+    global $product;
+    global $post;
+
+    $attributes = $product->get_attributes();
+
+    foreach ($attributes as $attribute) {
+
+        // Get the taxonomy.
+        $terms = wp_get_post_terms($product->id, $attribute['name'], 'all');
+        $taxonomy = $terms[0]->taxonomy;
+
+        // Get the taxonomy object.
+        $taxonomy_object = get_taxonomy($taxonomy);
+
+        // Get the attribute label.
+        $attribute_label = $taxonomy_object->labels->name_admin_bar;
+
+
+        // Display the label followed by a clickable list of terms.
+        echo get_the_term_list($post->ID, $attribute['name'], '<div class="attributes">' . $attribute_label . ' :  ', ', ', '</div>');
+    }
+}
