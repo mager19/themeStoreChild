@@ -27,11 +27,20 @@
 
     <div id="page" class="site">
 
-        <?php $image = get_field("background_header_shop", "option");  ?>
-        <header id="masthead" class="py-5 header__pages" role="banner" style="background-image:url(<?php echo $image; ?>);">
+        <?php $image = get_field('background_header', 'option'); ?>
+        <header class="header__child" style="background-image:url(<?php echo $image; ?>);">
             <!-- Topbar -->
             <?php get_template_part('inc/top', 'bar'); ?>
             <!-- End Topbar -->
-        </header><!-- #masthead -->
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 header__inside">
+                        <?php the_field('texto_encabezado', 'option');
+                        ?>
+                    </div>
+                </div>
+            </div>
+        </header>
 
         <div id="content" class="site-content">

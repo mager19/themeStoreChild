@@ -185,3 +185,53 @@
 .widget_product_categories {
 	margin-bottom: 1rem;
 }
+
+.header__pages {
+	h1 {
+		color: #fff;
+	}
+}
+
+.cuatro-container {
+	background-color: $light-1;
+	.content {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		min-height: 70vh;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	h2 {
+		color: $primary;
+		font-size: 15rem;
+		letter-spacing: 10%;
+		padding: 2rem 0;
+		margin-bottom: 5rem;
+		text-align: center;
+
+		@include media-breakpoint-down(xs) {
+			font-size: 10rem;
+			margin-bottom: 2rem;
+		}
+	}
+
+	h1 {
+		color: #5c6670;
+		text-align: center;
+		font-size: 3rem;
+		letter-spacing: 1px;
+
+		@include media-breakpoint-down(xs) {
+			font-size: 2rem;
+		}
+	}
+
+	p {
+		padding: 1rem 0;
+		max-width: 600px;
+		margin: 0 auto;
+		text-align: center;
+	}
+}

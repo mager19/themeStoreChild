@@ -10,7 +10,7 @@
  * @package gilmore
  */
 
-get_header(); ?>
+get_header('home'); ?>
 
 <!-- Section Textiles -->
 <div class="container padding-content textiles-area" id="quienes__somos">

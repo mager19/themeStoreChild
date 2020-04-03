@@ -10,14 +10,17 @@
  * @package gilmore
  */
 
-get_header(); ?>
+get_header('pages'); ?>
 
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
-            <?php the_content(); ?>
-
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam suscipit tempore, mollitia voluptatum facere eveniet laborum. Distinctio nihil, officiis, minus provident sunt fuga tenetur, placeat maxime perferendis beatae voluptatem ratione.
+        <div class="col-lg-12 cuatro-container">
+            <div class="content">
+                <h2>404</h2>
+                <h1>LO SENTIMOS!!!</h1>
+                <p>La página que estas buscando no existe en el momento, pero puedes regresar al
+                    inicio para ver más contenido</p>
+            </div>
         </div>
     </div>
 </div>
