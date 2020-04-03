@@ -159,3 +159,19 @@ function ocultar_aviso_cupon($enabled)
     return $enabled;
 }
 add_filter('woocommerce_coupons_enabled', 'ocultar_aviso_cupon');
+
+
+
+
+add_action('wpmem_register_redirect', 'the_reg_redirect');
+function the_reg_redirect()
+{
+    // NOTE: this is an action hook that uses wp_redirect
+    // wp_redirect must end with exit();
+
+    $url = get_bloginfo('url');
+
+    wp_redirect($url . '/shop');
+
+    exit();
+}
