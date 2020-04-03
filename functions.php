@@ -114,13 +114,13 @@ function remover_cosas()
 }
 
 // remove sidebar for woocommerce pages 
-// add_action('get_header', 'remove_storefront_sidebar');
-// function remove_storefront_sidebar()
-// {
-//     if (is_shop()) {
-//         remove_action('storefront_sidebar', 'storefront_get_sidebar', 10);
-//     }
-// }
+add_action('get_header', 'remove_storefront_sidebar');
+function remove_storefront_sidebar()
+{
+    if (!is_shop()) {
+        remove_action('storefront_sidebar', 'storefront_get_sidebar', 10);
+    }
+}
 
 //add attributes producto shop page
 //add_action('init', 'add_attributes_products');
@@ -149,3 +149,13 @@ function add_attributes_products()
         echo get_the_term_list($post->ID, $attribute['name'], '<div class="attributes">' . $attribute_label . ' :  ', ', ', '</div>');
     }
 }
+
+// Ocultar aviso de cupones en carrito y finalizar compra
+function ocultar_aviso_cupon($enabled)
+{
+    if (is_cart() || is_checkout()) {
+        $enabled = false;
+    }
+    return $enabled;
+}
+add_filter('woocommerce_coupons_enabled', 'ocultar_aviso_cupon');

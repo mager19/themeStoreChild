@@ -449,7 +449,7 @@
         var marker = new google.maps.Marker({
             position: latlng,
             map: map,
-            icon: '../wp-content/themes/themeStoreChild/assets/img/pin2.png',
+            icon: '../wp-content/themes/storefront-child-theme/assets/img/pin2.png',
 
         });
 

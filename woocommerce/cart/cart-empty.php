@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Empty cart page
  *
@@ -15,17 +16,32 @@
  * @version 3.5.0
  */
 
-defined( 'ABSPATH' ) || exit;
+defined('ABSPATH') || exit; ?>
 
-/*
- * @hooked wc_empty_cart_message - 10
- */
-do_action( 'woocommerce_cart_is_empty' );
 
-if ( wc_get_page_id( 'shop' ) > 0 ) : ?>
-	<p class="return-to-shop">
-		<a class="button wc-backward" href="<?php echo esc_url( apply_filters( 'woocommerce_return_to_shop_redirect', wc_get_page_permalink( 'shop' ) ) ); ?>">
-			<?php esc_html_e( 'Return to shop', 'woocommerce' ); ?>
-		</a>
-	</p>
-<?php endif; ?>
+<div class="container">
+	<div class="row">
+		<div class="col-12">
+			<?php
+			if (is_user_logged_in()) {
+
+				/*
+ 					* @hooked wc_empty_cart_message - 10
+ 				*/
+				do_action('woocommerce_cart_is_empty');
+
+				if (wc_get_page_id('shop') > 0) : ?>
+					<p class="return-to-shop">
+						<a class="button wc-backward" href="<?php echo esc_url(apply_filters('woocommerce_return_to_shop_redirect', wc_get_page_permalink('shop'))); ?>">
+							<?php esc_html_e('Return to shop', 'woocommerce'); ?>
+						</a>
+					</p>
+			<?php endif;
+			} else {
+				get_template_part("inc/tabs");
+			}
+
+			?>
+		</div>
+	</div>
+</div>
