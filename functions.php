@@ -175,3 +175,36 @@ function the_reg_redirect()
 
     exit();
 }
+
+
+add_filter('wpmem_login_redirect', 'my_first_login_redirect', 10, 2);
+function my_first_login_redirect($redirect_to, $user_id)
+{
+
+    // Set page to redirect the user to.
+    // @uses https://codex.wordpress.org/Function_Reference/home_url
+    $redirect_url = home_url('my-account');
+
+    // See if the user has already logged in before
+    // @uses https://codex.wordpress.org/Function_Reference/get_user_meta
+    $first_login = get_user_meta($user_id, 'first_login', true);
+    if (!$first_login) {
+        // Sets that the user has done their first login
+        // @uses https://codex.wordpress.org/Function_Reference/update_user_meta
+        update_user_meta($user_id, 'first_login', 'true');
+
+        // Set redirect based on user's first login
+        $redirect_to = $redirect_url;
+    }
+
+    return $redirect_to;
+}
+
+
+add_filter('wpmem_login_redirect', 'my_login_redirect', 10, 2);
+function my_login_redirect($redirect_to, $user_id)
+{
+
+    // This will redirect to https://yourdomain.com/your-page/
+    return home_url('/my-account/');
+}
