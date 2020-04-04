@@ -164,7 +164,8 @@
 	}
 }
 
-.add_to_cart_button {
+.add_to_cart_button,
+#payment .place-order .button {
 	background: $primary;
 	color: #fff;
 	width: 100%;
@@ -391,7 +392,8 @@
 	}
 }
 
-.woocommerce-address-fields__field-wrapper {
+.woocommerce-address-fields__field-wrapper,
+.checkout {
 	select {
 		padding: 1rem 0.5rem !important;
 	}
@@ -424,4 +426,12 @@
 			margin-top: 10px !important;
 		}
 	}
+}
+
+.product {
+	padding-left: 0;
+}
+
+.required {
+	color: $primary !important;
 }
