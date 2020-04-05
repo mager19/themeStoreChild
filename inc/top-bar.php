@@ -8,8 +8,18 @@
             <div class="col-lg-9 top-bar__menu d-none d-lg-flex">
                 <div class="main-nav">
                     <?php
-                    wp_nav_menu();
+                    if (is_user_logged_in() && !is_page('home')) {
+                        wp_nav_menu(
+                            array(
+                                'theme_location'  => 'secondary',
+                            )
+                        );
+                    } else {
+                        wp_nav_menu();
+                    }
+
                     ?>
+
                 </div>
             </div>
             <!-- Button trigger modal -->
