@@ -150,7 +150,9 @@ get_header('home'); ?>
 
             <div class="col-lg-9 container__products">
                 <?php
-                $args = array('post_type' => 'product', 'posts_per_page' => -1);
+
+                // $args = array('post_type' => 'product', 'posts_per_page' => -1);
+                $args = array('post_type' => 'product', 'posts_per_page' => 12, 'tax_query' => array(array('taxonomy' => 'product_visibility', 'field' => 'name', 'terms' => 'featured',),),);
                 $loop = new WP_Query($args);
                 if ($loop->have_posts()) : ?>
                     <div class="row grid">
@@ -161,6 +163,9 @@ get_header('home'); ?>
                             <div class="col-lg-4 col-md-6 col-12 mb-5 element-item <?php echo $terms[0]->slug; ?>">
 
                                 <?php the_post_thumbnail(); ?>
+                                <div class="attributes">
+                                    <h3><strong><?php the_title(); ?></strong></h3>
+                                </div>
                                 <?php
                                 global $product;
                                 global $post;

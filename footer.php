@@ -20,7 +20,7 @@
                 </div>
             </div>
 
-            <div class="col-lg-9 col-xl-10 col-md-9 footer__child__right d-flex justify-content-between ">
+            <div class="col-lg-9 col-xl-9 col-md-9 footer__child__right d-flex justify-content-between ">
 
                 <div class="footer__child__right__item">
                     <?php the_field('copyright', 'option'); ?>
