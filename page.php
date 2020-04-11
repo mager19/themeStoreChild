@@ -11,7 +11,7 @@
 get_header(); ?>
 
 <!-- Section Textiles -->
-<div class="container padding-content textiles-area" id="quienes__somos">
+<div class="container padding-content">
     <div class="row">
         <div class="col-12">
             <?php
