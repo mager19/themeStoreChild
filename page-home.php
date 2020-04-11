@@ -95,6 +95,7 @@ get_header('home'); ?>
 </section>
 
 <!-- Nuestros Productos -->
+<?php /*
 <section class="nuestros__productos my-lg-5 title__nuestros__productos" id="nuestros__productos">
     <div class="container">
         <div class="row">
@@ -201,6 +202,8 @@ get_header('home'); ?>
         </div>
     </div>
 </section>
+ 
+*/ ?>
 
 <!-- Contacto -->
 <section class="contacto" id="contacto">
